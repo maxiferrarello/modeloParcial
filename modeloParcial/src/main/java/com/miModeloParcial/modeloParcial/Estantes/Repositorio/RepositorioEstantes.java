@@ -1,6 +1,6 @@
 package com.miModeloParcial.modeloParcial.Estantes.Repositorio;
 
-import com.miModeloParcial.modeloParcial.Estantes.EntidadEstantes;
+import com.miModeloParcial.modeloParcial.Estantes.Model.EntidadEstantes;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

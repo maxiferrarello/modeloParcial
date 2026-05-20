@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @RestControllerAdvice
 public class GlobalExceptionHandler  {
 
+    /*
     // 404 NOT FOUND
     @ExceptionHandler(ReactivoNoEncontradoException.class)
     public ResponseEntity<ErrorResponseDTO> manejarReactivoNoEncontrado(ReactivoNoEncontradoException ex)
@@ -19,17 +20,20 @@ public class GlobalExceptionHandler  {
         return buildResponse(HttpStatus.NOT_FOUND, ex.getMessage());
     }
 
+     */
+
     ///  en String poner ErrorResponseDTO. arreglarlo, tambien debo crear el ErrorResponseDTO en common, ver el proyecto del chico para guiarme.
     ///
     /// ASI QUEDARIA EL GLOBAL HANDLER CON UNA EXCEPCION DONDE NO TENGAMOS ERRORRESPONSEDTO. ES MUY FACIL
+    ///
     /// // 404 NOT FOUND
-    ///     @ExceptionHandler(ReactivoNoEncontradoException.class)
-    ///     public ResponseEntity<String> manejarReactivoNoEncontrado(ReactivoNoEncontradoException ex)
-    ///     {
-    ///         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
-    ///     }
+       @ExceptionHandler(ReactivoNoEncontradoException.class)
+       public ResponseEntity<String> manejarReactivoNoEncontrado(ReactivoNoEncontradoException ex)
+       {
+             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+        }
 
-
+        /*
     /// esto es obligatorio para crear el response
     private ResponseEntity<ErrorResponseDTO> buildResponse(HttpStatus status, String message) {
         ErrorResponseDTO error = new ErrorResponseDTO(
@@ -40,4 +44,6 @@ public class GlobalExceptionHandler  {
         );
         return new ResponseEntity<>(error, status);
     }
+
+         */
 }

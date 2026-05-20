@@ -1,7 +1,9 @@
-package com.miModeloParcial.modeloParcial.Estantes;
+package com.miModeloParcial.modeloParcial.Estantes.Servicio;
 
 import com.miModeloParcial.modeloParcial.Estantes.Dominio.DTO.EstanteDTO;
 import com.miModeloParcial.modeloParcial.Estantes.Dominio.Mappers.EstanteMapper;
+import com.miModeloParcial.modeloParcial.Estantes.Exception.EstanteNoEncontradoException;
+import com.miModeloParcial.modeloParcial.Estantes.Model.EntidadEstantes;
 import com.miModeloParcial.modeloParcial.Estantes.Repositorio.RepositorioEstantes;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,7 +12,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class ServicioEstantes implements IServicioEstantes{
+public class ServicioEstantes implements IServicioEstantes {
 
     private final RepositorioEstantes repositorioEstantes;
     private final EstanteMapper estanteMapper;
@@ -27,6 +29,13 @@ public class ServicioEstantes implements IServicioEstantes{
     @Override
     public void borrar(Long id) {
         repositorioEstantes.findById(id).ifPresent(repositorioEstantes::delete);
+    }
+
+    @Override
+    public EstanteDTO buscarPorId(Long id) {
+        return repositorioEstantes.findById(id)
+                .map(estanteMapper::toDto)
+                .orElseThrow(()-> new EstanteNoEncontradoException("No se encontro el reactivo con ID" + id));
     }
 
     @Override

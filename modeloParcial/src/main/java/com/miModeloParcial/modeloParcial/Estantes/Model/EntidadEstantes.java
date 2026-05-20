@@ -1,7 +1,6 @@
-package com.miModeloParcial.modeloParcial.Estantes;
+package com.miModeloParcial.modeloParcial.Estantes.Model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

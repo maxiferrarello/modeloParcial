@@ -1,7 +1,7 @@
 package com.miModeloParcial.modeloParcial.Estantes.Dominio.Mappers;
 
 import com.miModeloParcial.modeloParcial.Estantes.Dominio.DTO.EstanteDTO;
-import com.miModeloParcial.modeloParcial.Estantes.EntidadEstantes;
+import com.miModeloParcial.modeloParcial.Estantes.Model.EntidadEstantes;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
