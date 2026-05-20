@@ -19,14 +19,9 @@ public class EntidadReactivos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    @Size(max = 50) // valida en java
     @Column(name = "nombre", nullable = false,length = 50) // validaciones en la BD
     private String name;
 
-    @Min(1)
-    @Max(10)
-    @NotNull
     @Column(name = "nivel_peligro",nullable = false)
     private Long nivelPeligro;
 
