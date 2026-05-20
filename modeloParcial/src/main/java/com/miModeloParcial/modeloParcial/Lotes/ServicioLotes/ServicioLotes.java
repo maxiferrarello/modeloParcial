@@ -2,6 +2,7 @@ package com.miModeloParcial.modeloParcial.Lotes.ServicioLotes;
 
 import com.miModeloParcial.modeloParcial.Lotes.Dominio.DTO.LotesDTO;
 import com.miModeloParcial.modeloParcial.Lotes.Dominio.Mappers.LotesMapper;
+import com.miModeloParcial.modeloParcial.Lotes.LoteNoEncontradoException;
 import com.miModeloParcial.modeloParcial.Lotes.Model.EntidadLotes;
 import com.miModeloParcial.modeloParcial.Lotes.Repositorio.RepositorioLotes;
 import lombok.AllArgsConstructor;
@@ -33,7 +34,7 @@ public class ServicioLotes implements IServicioLotes{
     public LotesDTO buscarPorId(Long id) {
         return repositorioLotes.findById(id)
                 .map(lotesMapper::toDTO)
-                .orElseThrow();
+                .orElseThrow(()-> new LoteNoEncontradoException("No se encontro el lote con id " + id));
     }
 
     @Override
@@ -48,6 +49,7 @@ public class ServicioLotes implements IServicioLotes{
         EntidadLotes actualizado = repositorioLotes.save(lot);
         return lotesMapper.toDTO(actualizado);
     }
+
 
     @Override
     public List<LotesDTO> buscarTodos() {
