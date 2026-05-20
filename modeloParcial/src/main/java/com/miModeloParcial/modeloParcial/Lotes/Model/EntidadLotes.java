@@ -1,4 +1,4 @@
-package com.miModeloParcial.modeloParcial.Lotes;
+package com.miModeloParcial.modeloParcial.Lotes.Model;
 
 import com.miModeloParcial.modeloParcial.Estantes.Model.EntidadEstantes;
 import com.miModeloParcial.modeloParcial.Reactivos.Model.EntidadReactivos;

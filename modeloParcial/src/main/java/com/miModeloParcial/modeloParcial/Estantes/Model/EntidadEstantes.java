@@ -1,7 +1,6 @@
 package com.miModeloParcial.modeloParcial.Estantes.Model;
 
-import com.miModeloParcial.modeloParcial.Lotes.EntidadLotes;
-import com.miModeloParcial.modeloParcial.Reactivos.Model.EntidadReactivos;
+import com.miModeloParcial.modeloParcial.Lotes.Model.EntidadLotes;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
