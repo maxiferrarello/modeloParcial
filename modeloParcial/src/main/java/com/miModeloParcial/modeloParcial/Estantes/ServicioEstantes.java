@@ -26,16 +26,28 @@ public class ServicioEstantes implements IServicioEstantes{
 
     @Override
     public void borrar(Long id) {
-
+        repositorioEstantes.findById(id).ifPresent(repositorioEstantes::delete);
     }
 
     @Override
     public EstanteDTO actualizar(Long id, EstanteDTO estanteDTO) {
-        return null;
+        EntidadEstantes est = repositorioEstantes.findById(id)
+                .orElseThrow();
+        est.setCodigoAlmacen(estanteDTO.getCodigoAlmacen());
+        est.setCapacidadMaxKg(estanteDTO.getCapacidadMaxKg());
+        est.setRiesgoLimite(estanteDTO.getRiesgoLimite());
+
+        EntidadEstantes actualizado = repositorioEstantes.save(est);
+
+        return estanteMapper.toDto(actualizado);
     }
 
     @Override
     public List<EstanteDTO> buscarTodos() {
-        return List.of();
+
+        return repositorioEstantes.findAll()
+                .stream()
+                .map(estanteMapper::toDto)
+                .toList();
     }
 }
