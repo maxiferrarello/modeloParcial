@@ -18,4 +18,6 @@ public class GlobalExceptionHandler  {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 
+    ///  en String poner ErrorResponseDTO. arreglarlo, tambien debo crear el ErrorResponseDTO en common, ver el proyecto del chico para guiarme.
+
 }
