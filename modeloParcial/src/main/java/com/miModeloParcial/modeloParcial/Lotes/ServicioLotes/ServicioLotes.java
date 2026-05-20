@@ -2,7 +2,7 @@ package com.miModeloParcial.modeloParcial.Lotes.ServicioLotes;
 
 import com.miModeloParcial.modeloParcial.Lotes.Dominio.DTO.LotesDTO;
 import com.miModeloParcial.modeloParcial.Lotes.Dominio.Mappers.LotesMapper;
-import com.miModeloParcial.modeloParcial.Lotes.LoteNoEncontradoException;
+import com.miModeloParcial.modeloParcial.Lotes.Exception.LoteNoEncontradoException;
 import com.miModeloParcial.modeloParcial.Lotes.Model.EntidadLotes;
 import com.miModeloParcial.modeloParcial.Lotes.Repositorio.RepositorioLotes;
 import lombok.AllArgsConstructor;
