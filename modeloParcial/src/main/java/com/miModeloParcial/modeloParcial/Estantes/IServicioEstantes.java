@@ -6,5 +6,5 @@ public interface IServicioEstantes {
 
     /// crud obligatorios
     public EstanteDTO guardar (EstanteDTO estanteDTO);
-    public Esta
+
 }

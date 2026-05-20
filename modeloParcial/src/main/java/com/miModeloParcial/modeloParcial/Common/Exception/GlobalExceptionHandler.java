@@ -1,23 +1,34 @@
 package com.miModeloParcial.modeloParcial.Common.Exception;
 
+import com.miModeloParcial.modeloParcial.Common.Dto.ErrorResponseDTO;
 import com.miModeloParcial.modeloParcial.Reactivos.Exception.ReactivoNoEncontradoException;
-import org.springframework.http.HttpCookie;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.time.LocalDateTime;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler  {
 
     // 404 NOT FOUND
     @ExceptionHandler(ReactivoNoEncontradoException.class)
-    public ResponseEntity<String> manejarReactivoNoEncontrado(ReactivoNoEncontradoException ex)
+    public ResponseEntity<ErrorResponseDTO> manejarReactivoNoEncontrado(ReactivoNoEncontradoException ex)
     {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+        return buildResponse(HttpStatus.NOT_FOUND, ex.getMessage());
     }
 
     ///  en String poner ErrorResponseDTO. arreglarlo, tambien debo crear el ErrorResponseDTO en common, ver el proyecto del chico para guiarme.
 
+
+    private ResponseEntity<ErrorResponseDTO> buildResponse(HttpStatus status, String message) {
+        ErrorResponseDTO error = new ErrorResponseDTO(
+                LocalDateTime.now(),
+                status.value(),
+                status.getReasonPhrase(),
+                message
+        );
+        return new ResponseEntity<>(error, status);
+    }
 }
