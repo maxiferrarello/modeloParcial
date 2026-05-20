@@ -20,6 +20,14 @@ public class GlobalExceptionHandler  {
     }
 
     ///  en String poner ErrorResponseDTO. arreglarlo, tambien debo crear el ErrorResponseDTO en common, ver el proyecto del chico para guiarme.
+    ///
+    /// ASI QUEDARIA EL GLOBAL HANDLER CON UNA EXCEPCION DONDE NO TENGAMOS ERRORRESPONSEDTO. ES MUY FACIL
+    /// // 404 NOT FOUND
+    ///     @ExceptionHandler(ReactivoNoEncontradoException.class)
+    ///     public ResponseEntity<String> manejarReactivoNoEncontrado(ReactivoNoEncontradoException ex)
+    ///     {
+    ///         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    ///     }
 
 
     private ResponseEntity<ErrorResponseDTO> buildResponse(HttpStatus status, String message) {
