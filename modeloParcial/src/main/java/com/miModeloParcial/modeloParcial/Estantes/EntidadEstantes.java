@@ -22,19 +22,12 @@ public class EntidadEstantes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
     @Column(name = "codigo_almacen",nullable = false,length = 50)
     private String codigoAlmacen;
 
-    @NotNull
-    @Positive
     @Column(name = "capacidad_max_kg",nullable = false,precision = 10,scale = 2)
     private BigDecimal capacidadMaxKg;
 
-
-    @NotNull
-    @Min(1)
-    @Max(10)
     @Column(name = "riesgo_limite",nullable = false)
     private Long riesgoLimite;
 
