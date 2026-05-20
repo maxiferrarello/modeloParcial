@@ -1,5 +1,7 @@
 package com.miModeloParcial.modeloParcial.Estantes.Model;
 
+import com.miModeloParcial.modeloParcial.Lotes.EntidadLotes;
+import com.miModeloParcial.modeloParcial.Reactivos.Model.EntidadReactivos;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter
@@ -30,5 +33,6 @@ public class EntidadEstantes {
     @Column(name = "riesgo_limite",nullable = false)
     private Long riesgoLimite;
 
-
+    @OneToMany(mappedBy = "estantes")
+    private List<EntidadLotes> lotes;
 }

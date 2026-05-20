@@ -3,13 +3,10 @@ package com.miModeloParcial.modeloParcial.Lotes;
 import com.miModeloParcial.modeloParcial.Estantes.Model.EntidadEstantes;
 import com.miModeloParcial.modeloParcial.Reactivos.Model.EntidadReactivos;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
+
 
 @Entity
 @AllArgsConstructor
@@ -38,17 +35,11 @@ public class EntidadLotes {
     /// RELACIONES ENTRE TABLAS.
     @ManyToOne
     @JoinColumn(name = "id_reactivo")
-    private EntidadReactivos entidadReactivos;
+    private EntidadReactivos reactivos;
 
     @ManyToOne
     @JoinColumn(name = "id_estante")
-    private EntidadEstantes entidadEstantes;
-
-
-
-
-
-
+    private EntidadEstantes estantes;
 
 
 }

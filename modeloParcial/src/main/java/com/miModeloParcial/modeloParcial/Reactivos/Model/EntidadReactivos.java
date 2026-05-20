@@ -1,11 +1,14 @@
 package com.miModeloParcial.modeloParcial.Reactivos.Model;
 
+import com.miModeloParcial.modeloParcial.Lotes.EntidadLotes;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Setter
@@ -30,6 +33,11 @@ public class EntidadReactivos {
 
     @Column(name = "activo",nullable = false)
     private boolean activo;
+
+
+    @OneToMany(mappedBy = "reactivos")
+    private List<EntidadLotes> lotes;
+
 
 
 
