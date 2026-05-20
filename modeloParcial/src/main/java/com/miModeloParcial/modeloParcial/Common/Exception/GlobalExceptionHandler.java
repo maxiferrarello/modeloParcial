@@ -30,6 +30,7 @@ public class GlobalExceptionHandler  {
     ///     }
 
 
+    /// esto es obligatorio para crear el response
     private ResponseEntity<ErrorResponseDTO> buildResponse(HttpStatus status, String message) {
         ErrorResponseDTO error = new ErrorResponseDTO(
                 LocalDateTime.now(),
