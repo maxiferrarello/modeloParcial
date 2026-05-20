@@ -25,12 +25,15 @@ public class ServicioLotes implements IServicioLotes{
 
     @Override
     public void borrar(Long id) {
-
+        repositorioLotes.findById(id).ifPresent(repositorioLotes::delete);
     }
+
 
     @Override
     public LotesDTO buscarPorId(Long id) {
-        return null;
+        return repositorioLotes.findById(id)
+                .map(lotesMapper::toDTO)
+                .orElseThrow();
     }
 
     @Override
