@@ -38,11 +38,22 @@ public class ServicioLotes implements IServicioLotes{
 
     @Override
     public LotesDTO actualizar(Long id, LotesDTO lotesDTO) {
-        return null;
+        EntidadLotes lot = repositorioLotes.findById(id)
+                .orElseThrow();
+        lot.setCantidad_kg(lotesDTO.getCantidad_kg());
+        lot.setNro_lote(lotesDTO.getNro_lote());
+        lot.setFecha_recepcion(lotesDTO.getFecha_recepcion());
+        lot.setFecha_vencimiento(lotesDTO.getFecha_vencimiento());
+
+        EntidadLotes actualizado = repositorioLotes.save(lot);
+        return lotesMapper.toDTO(actualizado);
     }
 
     @Override
     public List<LotesDTO> buscarTodos() {
-        return List.of();
+        return repositorioLotes.findAll()
+                .stream()
+                .map(lotesMapper::toDTO)
+                .toList();
     }
 }
